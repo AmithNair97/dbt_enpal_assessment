@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_pipedrive__deal_changes
+    description: "Staging model for deal_changes"
+    columns:
+      - name: deal_id
+        tests:
+          - not_null
+      - name: change_time
+        tests:
+          - not_null
+      - name: changed_field_key
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['user_id', 'stage_id', 'lost_reason', 'add_time']
+      - name: new_value
+        tests:
+          - not_null
